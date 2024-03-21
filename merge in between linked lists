@@ -1,0 +1,24 @@
+class Solution:
+    def mergeInBetween(self, list1: ListNode, a: int, b: int, list2: ListNode) -> ListNode:
+        if not list1 or not list2:
+            return None
+        curr = list1
+        start = list1
+        end = list1
+        count = 0
+
+        while curr:
+            count += 1
+            if count == a:
+                start = curr
+            curr = curr.next
+            if count == b + 1:
+                end = curr
+
+        curr = list2
+        start.next = list2
+        while curr.next:
+            curr = curr.next
+
+        curr.next = end
+        return list1
