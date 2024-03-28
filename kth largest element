@@ -1,0 +1,12 @@
+import heapq
+def find(arr,k):
+    arr=[-i for i in  arr]
+    heapq.heapify(arr)
+    while k>0:
+        s=heapq.heappop(arr)
+        k=k-1
+    return s*-1
+arr=list(map(int,input().split()))
+k=int(input("enter a "))
+ans=find(arr,k)
+print(ans)
