@@ -1,0 +1,12 @@
+
+class Solution:
+    def leastInterval(self, tasks: List[str], n: int) -> int:
+        task_count= Counter(tasks)
+        max_frequ=max(task_count.values())
+        mx=0
+        for i in task_count:
+            if task_count[i]==max_frequ:
+                mx+=1
+    
+        interval_needed=((max_frequ-1)*(n+1)+mx)
+        return max(interval_needed,len(tasks))
